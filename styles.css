@@ -4,7 +4,7 @@ body {
   font-family: "DM Sans", sans-serif;
   width: 300px;
   height: 350px;
-  background-color: #FEF8F9;
+  background-color: #E9F2EE;
 }
 
 .container {
@@ -47,4 +47,17 @@ body {
 .open p {
   color: #fff;
   font-size: 0.95rem;
+}
+
+.footer{
+  text-align: center;
+}
+
+.footer p{
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.footer img{
+  margin-bottom: 1rem;
 }
