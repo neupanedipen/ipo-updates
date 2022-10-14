@@ -29,9 +29,13 @@ body {
 
 .open {
   margin-bottom: 1rem;
-  background-color: #61bf76;
+  background-color: #22B379;
   padding: 0.6rem 0.8rem;
   text-align: center;
+}
+
+.upcomingIPO-cards .open{
+  background-color: #61bf76;
 }
 
 .open h3 {
