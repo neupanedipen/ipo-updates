@@ -27,7 +27,7 @@ body {
   font-size: 1.4rem;
 }
 
-.open {
+.open, .closingToday {
   margin-bottom: 1rem;
   background-color: #22B379;
   padding: 0.6rem 0.8rem;
@@ -35,19 +35,27 @@ body {
   border-radius: 0.7rem;
 }
 
+.closingToday {
+  background-color: #F45B69;
+}
+
 .upcomingIPO-cards .open{
   background-color: #61bf76;
 }
 
-.open h3 {
+.open h3, .closingToday h3 {
   color: #fff;
   font-size: 1.1rem;
   line-height: 1.6rem;
 }
 
-.open p {
+.open p, .closingToday p {
   color: #fff;
   font-size: 0.95rem;
+}
+
+#closingToday h2{
+  text-align: center;
 }
 
 .footer{
