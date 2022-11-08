@@ -10,6 +10,17 @@ const companyName = document.querySelector(".company-name");
 const openingDateElement = document.querySelector(".open-date");
 const closingDateElement = document.querySelector(".close-date");
 const issueDesc = document.querySelector(".issue-desc");
+const loadingContainer = document.querySelector('#loading');
+
+const displayLoading = () => {
+  document.querySelector('.container').style.visibility = 'hidden';
+  loadingContainer.style.display = 'block';
+};
+
+const hideLoading = () => {
+  loadingContainer.style.display = 'none';
+  document.querySelector('.container').style.visibility = 'visible';
+};
 
 const url =
   "https://bizmandu.com/__stock/announcement/announcement/?type=ipo-fpo";
@@ -17,9 +28,12 @@ const url =
 const today = new Date();
 
 const fetchData = async () => {
+
+  displayLoading()
   const req = await fetch(url);
   const data = await req.json();
   checkOpen(data.message);
+  hideLoading()
 };
 
 const checkOpen = (arr) => {

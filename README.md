@@ -9,3 +9,6 @@ To use this extension on your browser:
 ## To Do:
 - Better UI
 - Categorize the issues into Local and General Issues
+
+## FireFox Add On:
+The add on for Mozilla Firefox is available on the add on webstore. You can install the add on from the link [https://addons.mozilla.org/en-US/firefox/addon/ipo-fpo-updates/](https://addons.mozilla.org/en-US/firefox/addon/ipo-fpo-updates/)
