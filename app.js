@@ -1,7 +1,7 @@
 const openIposElement = document.querySelector(".openIPO-cards");
 const emptyIpo = document.querySelector(".empty-ipo");
 
-const closingTodayEle = document.querySelector("#closingToday")
+const closingTodayEle = document.querySelector("#closingToday");
 
 const upcomingIposElement = document.querySelector(".upcomingIPO-cards");
 const emptyUpcoming = document.querySelector(".empty-upcoming");
@@ -10,49 +10,49 @@ const companyName = document.querySelector(".company-name");
 const openingDateElement = document.querySelector(".open-date");
 const closingDateElement = document.querySelector(".close-date");
 const issueDesc = document.querySelector(".issue-desc");
-const loadingContainer = document.querySelector('#loading');
+const loadingContainer = document.querySelector("#loading");
 
 const displayLoading = () => {
-  document.querySelector('.container').style.visibility = 'hidden';
-  loadingContainer.style.display = 'block';
+  document.querySelector(".container").style.visibility = "hidden";
+  loadingContainer.style.display = "block";
 };
 
 const hideLoading = () => {
-  loadingContainer.style.display = 'none';
-  document.querySelector('.container').style.visibility = 'visible';
+  loadingContainer.style.display = "none";
+  document.querySelector(".container").style.visibility = "visible";
 };
 
-const url =
-  "https://bizmandu.com/__stock/announcement/announcement/?type=ipo-fpo";
+const url = "https://www.onlinekhabar.com/smtm/home/ipo-corner-upcoming";
 
 const today = new Date();
 
 const fetchData = async () => {
-
-  displayLoading()
+  displayLoading();
   const req = await fetch(url);
   const data = await req.json();
   checkOpen(data.message);
-  hideLoading()
+  hideLoading();
 };
 
 const checkOpen = (arr) => {
-  const closingToday = arr.filter(ipo => {
-    return new Date (ipo.closeDate).toLocaleDateString() == today.toLocaleDateString()
-  })
+  const closingToday = arr.filter((ipo) => {
+    return (
+      new Date(ipo.close_date).toLocaleDateString() ==
+      today.toLocaleDateString()
+    );
+  });
 
-  if(closingToday.length > 0){
-
+  if (closingToday.length > 0) {
     let closingTitle = document.createElement("h2");
-    closingTitle.innerHTML = 'Issues Closing Today';
-    closingTodayEle.appendChild(closingTitle)
+    closingTitle.innerHTML = "Issues Closing Today";
+    closingTodayEle.appendChild(closingTitle);
 
     closingToday.map((ipo) => {
       let closingToday = document.createElement("div");
-      closingToday.classList.add('closingToday');
+      closingToday.classList.add("closingToday");
 
       let name = document.createElement("h3");
-      name.innerHTML = `${ipo.company} (${ipo.ticker})`;
+      name.innerHTML = `${ipo.company_name} (${ipo.ticker})`;
       closingToday.appendChild(name);
 
       let description = document.createElement("p");
@@ -68,17 +68,16 @@ const checkOpen = (arr) => {
 
       let closeDate = document.createElement("p");
       closeDate.innerHTML = `<strong>Close Date:</strong> ${new Date(
-        ipo.closeDate
+        ipo.close_date
       ).toDateString()}`;
       closingToday.appendChild(closeDate);
 
-      closingTodayEle.appendChild(closingToday)
-      
-    })    
+      closingTodayEle.appendChild(closingToday);
+    });
   }
 
   const upcomingIPOs = arr.filter((item) => {
-    let openDate = new Date(item.openDate);
+    let openDate = new Date(item.open_date);
     let closeDate = new Date(item.closeDate);
     return closeDate > today && openDate > today;
   });
@@ -92,7 +91,7 @@ const checkOpen = (arr) => {
       ipoCard.classList.add("open");
 
       let name = document.createElement("h3");
-      name.innerHTML = `${ipo.company} (${ipo.ticker})`;
+      name.innerHTML = `${ipo.company_name} (${ipo.ticker})`;
       ipoCard.appendChild(name);
 
       let description = document.createElement("p");
@@ -108,7 +107,7 @@ const checkOpen = (arr) => {
 
       let closeDate = document.createElement("p");
       closeDate.innerHTML = `<strong>Close Date:</strong> ${new Date(
-        ipo.closeDate
+        ipo.close_date
       ).toDateString()}`;
       ipoCard.appendChild(closeDate);
 
@@ -130,7 +129,7 @@ const checkOpen = (arr) => {
       ipoCard.classList.add("open");
 
       let name = document.createElement("h3");
-      name.innerHTML = `${ipo.company} (${ipo.ticker})`;
+      name.innerHTML = `${ipo.company_name} (${ipo.ticker})`;
       ipoCard.appendChild(name);
 
       let description = document.createElement("p");
@@ -146,7 +145,7 @@ const checkOpen = (arr) => {
 
       let closeDate = document.createElement("p");
       closeDate.innerHTML = `<strong>Close Date:</strong> ${new Date(
-        ipo.closeDate
+        ipo.close_date
       ).toDateString()}`;
       ipoCard.appendChild(closeDate);
       openIposElement.appendChild(ipoCard);
